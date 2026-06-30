@@ -11,7 +11,7 @@ This project analyzes the Chicago Crime dataset using BigQuery, Python, and Powe
 ├── chicago_crime_eda.ipynb       # Main EDA notebook (BigQuery + Python)
 ├── chicago_crime_theme.json      # Power BI custom theme file
 ├── feature_importance.csv        # Exported ML model feature importances
-├── chicago_crime_capstone.pbix   # Final Power BI dashboard (6 pages)
+├── dashboard_screenshots.pdf     # Screenshots of all 6 Power BI dashboard pages
 └── README.md                     # This file
 ```
 
@@ -51,21 +51,9 @@ Open `chicago_crime_eda.ipynb` in Google Colab. Run all cells top to bottom — 
 
 No manual edits are needed beyond the `PROJECT_ID` at the top, unless your table names differ.
 
-### 3. Power BI Dashboard Setup
+### 3. Power BI Dashboard
 
-**Connect to your data:**
-1. Open Power BI Desktop
-2. Get Data → Google BigQuery
-3. Sign in and select your project
-4. Load these two tables:
-   - `chicago_crime_cleaned` (the cleaned dataset exported from the notebook)
-   - `feature_importance` (the ML model's feature importance scores)
-
-**Apply the custom theme:**
-1. View → Themes → Browse for themes
-2. Select `chicago_crime_theme.json`
-
-This applies the dark purple/red/teal color palette to match the notebook's visual style.
+Since the `.pbix` file is too large for GitHub, the final dashboard is provided as `dashboard_screenshots.pdf`, a screenshot of each of the 6 dashboard pages. The PDF reflects the same dark themed, multi page report built from the cleaned data exported in Step 2, with Year, Crime Type, and District slicers synced across all pages so filtering on one page updates the rest.
 
 **Dashboard pages:**
 
@@ -78,23 +66,9 @@ This applies the dark purple/red/teal color palette to match the notebook's visu
 | 5 — Arrests | Arrest rate over time, domestic vs non-domestic, feature importance |
 | 6 — Conclusions | Written findings and summary visuals |
 
-**Slicers:** Year, Crime Type, and District slicers are synced across all pages (View → Sync Slicers) so filtering on one page updates the rest.
-
-## Where to Put Your Own Input
-
-If you're adapting this project for your own dataset or BigQuery project, here's exactly what needs to change:
-
-| What | Where |
-|---|---|
-| BigQuery project ID | Notebook, top cell (`PROJECT_ID`) |
-| Dataset/table names | Notebook, Section 2 SQL queries |
-| Cleaned table destination | Notebook, `to_gbq()` calls |
-| Power BI data source | Power BI → Transform Data → Data Source Settings |
-| Color theme | `chicago_crime_theme.json` → edit `dataColors` array |
-
 ## Key Findings
 
-See **Section 9 — Findings & Analytical Conclusions** in the notebook, or Page 6 of the dashboard, for the full written summary. Highlights include a long-term decline in crime volume, a significant gap between theft's prevalence and its arrest rate, and crime type being the strongest predictor of arrest likelihood in the machine learning model.
+See **Section 9 — Findings & Analytical Conclusions** in the notebook, or Page 6 of `dashboard_screenshots.pdf`, for the full written summary. Highlights include a long-term decline in crime volume, a significant gap between theft's prevalence and its arrest rate, and crime type being the strongest predictor of arrest likelihood in the machine learning model.
 
 ## Author
 
